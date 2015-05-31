@@ -61,32 +61,55 @@ jQuery( document ).ready(function( $ ) {
   /**
    * Toggle the comments area below the link.
    *
-   * @param  {string} id  ID of the comment expand button.
-   * @param  {string} url URL of the entry to load the comments.
+   * @param  {jQuery} $div DIV of the comment area.
+   * @param  {string} url  URL of the entry to load the comments from.
    */
-  function toggleComments( id, url ) {
-    // Show / Hide the comments area.
-    var $div = $( '#div-' + id ).toggle();
-    // Switch the [+] and [-] buttons.
-    $( 'span', $( '#' + id ) ).toggle();
+  function toggleComments( $div, url ) {
+    // Show / Hide the comments area div.
+    $div.toggle();
 
     // If we aren't loading / haven't loaded the comments yet, do this now.
     if ( ! $div.attr( 'data-loading' ) ) {
       $div.attr( 'data-loading', true );
+
       // Fetch the comments and fill them into the appropriate div.
-      $('#div-' + id ).load( url + ' .nestedlisting', function() {
+      $div.load( url + ' .commentarea', function() {
+        var $commentArea = $(this);
+
+        // Remove the title and comment filter menu.
+        $commentArea.find( '.panestack-title, .menuarea' ).remove();
+
+        // Hide the input field to add a comment and add a button to show it.
+        var $commentForm = $commentArea.find( '.usertext.cloneable' ).hide();
+        // Add a link at the top to add a new comment.
+        $('<a/>', {
+          style : 'display: inline-block; margin: 4px 10px;',
+          html  : '<button>Add new comment</button><button style="display:none;">Cancel</button>',
+          click : function() {
+            // Switch the "Add new comment" and "Cancel" buttons.
+            $( 'button', $(this) ).toggle();
+
+            // Show or Hide the comment form.
+            $commentForm.toggle();
+
+            // Set the focus on the comment input field.
+            $( 'textarea', $commentForm ).focus();
+          }
+        }).prependTo( $commentArea );
+
+
         // Add a link at the bottom to close the comments.
         $('<a/>', {
           style : 'cursor: pointer;',
-          html  : '<span title="Close comments">Close comments [-]</span>',
+          html  : '<span>Close comments [-]</span>',
           click : function() {
             // Scroll the window to the correct position.
             $(window).scrollTop( $(window).scrollTop() - $div.height() );
 
             // Hide the comments.
-            toggleComments( id, url );
+            toggleComments( $div, url );
           }
-        }).appendTo( $(this) );
+        }).appendTo( $commentArea );
       });
     }
   }
@@ -96,28 +119,33 @@ jQuery( document ).ready(function( $ ) {
    */
   function addCommentToggles() {
     $( '.comments' ).not( '.rp-toggle-added' ).each(function() {
-      var id  = 'show-comments-' + $(this).closest( '.thing' ).attr( 'data-fullname' );
+      var $commentsLink = $(this);
+
+      // Remember the url of the post page, cause that's where we load the comments from.
       var url = this.href;
+
+      // The div that will contain the loaded comments.
+      var $div = $('<div/>', {
+        html : 'loading...'
+      })
+      .hide()
+      .appendTo( $commentsLink.closest( '.entry' ) );
+
+      // Add a class to remember which ones have already been added.
+      $commentsLink.addClass( 'rp-toggle-added' );
 
       // Link to expand / reduce the comments.
       $('<a/>', {
-        'id'  : id,
         style : 'cursor: pointer;',
         html  : '<span title="Show comments">[+]</span><span title="Close comments" style="display:none">[-]</span>',
-        click : function() { toggleComments( id, url ); }
-      })
-      .insertAfter( $(this) );
+        click : function() {
+          // Switch the "[+]" and "[-]" buttons.
+          $( 'span', $(this) ).toggle();
 
-      // The div that will contain the loaded comments.
-      $('<div/>', {
-        'id'  : 'div-' + id,
-        html  : 'loading...'
-      })
-      .hide()
-      .appendTo( $(this).closest( '.entry' ) );
-
-      // Add a class to remember which ones have already been added.
-      $(this).addClass( 'rp-toggle-added' );
+          // Show or Hide the comments.
+          toggleComments( $div, url );
+        }
+      }).insertAfter( $commentsLink );
     });
   }
 });
