@@ -39,7 +39,7 @@ Simply choose the plugin that corresponds to your web browser below and download
 
 2. Reddit Plus userscript can be found here (just choose any one)
   - [Get it on OpenUserJS.org](https://openuserjs.org/install/noplanman/Reddit_Plus.user.js)
-  - [Get it on GreasyFork](https://greasyfork.org/en/scripts/xxxx-reddit-plus/code/Reddit%20Plus.user.js)
+  - [Get it on GreasyFork](https://greasyfork.org/scripts/10190-reddit-plus/code/Reddit%20Plus.user.js)
   - [Get it on GitHub](https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/Reddit_Plus.user.js)
 
 ##Any ideas / Feature requests / Comments?
