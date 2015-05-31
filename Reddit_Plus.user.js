@@ -67,12 +67,27 @@ jQuery( document ).ready(function( $ ) {
   function toggleComments( id, url ) {
     // Show / Hide the comments area.
     var $div = $( '#div-' + id ).toggle();
+    // Switch the [+] and [-] buttons.
     $( 'span', $( '#' + id ) ).toggle();
 
     // If we aren't loading / haven't loaded the comments yet, do this now.
-    if ( ! $div.data( 'loading' ) ) {
-      $div.data( 'loading', true );
-      $( '#div-' + id ).load( url + ' .nestedlisting' );
+    if ( ! $div.attr( 'data-loading' ) ) {
+      $div.attr( 'data-loading', true );
+      // Fetch the comments and fill them into the appropriate div.
+      $('#div-' + id ).load( url + ' .nestedlisting', function() {
+        // Add a link at the bottom to close the comments.
+        $('<a/>', {
+          style : 'cursor: pointer;',
+          html  : '<span title="Close comments">Close comments [-]</span>',
+          click : function() {
+            // Scroll the window to the correct position.
+            $(window).scrollTop( $(window).scrollTop() - $div.height() );
+
+            // Hide the comments.
+            toggleComments( id, url );
+          }
+        }).appendTo( $(this) );
+      });
     }
   }
 
@@ -80,28 +95,29 @@ jQuery( document ).ready(function( $ ) {
    * Add the toggles next to the comment links.
    */
   function addCommentToggles() {
-    $( '.comments' ).not( '.show-comments-toggled' ).each(function() {
+    $( '.comments' ).not( '.rp-toggle-added' ).each(function() {
+      var id  = 'show-comments-' + $(this).closest( '.thing' ).attr( 'data-fullname' );
       var url = this.href;
-      var id  = 'show-comments-' + url.split('/')[6];
 
-      $( '<a/>', {
+      // Link to expand / reduce the comments.
+      $('<a/>', {
         'id'  : id,
         style : 'cursor: pointer;',
-        title : 'Expand comments',
-        html  : '<span>[+]</span><span style="display:none">[-]</span>',
+        html  : '<span title="Show comments">[+]</span><span title="Close comments" style="display:none">[-]</span>',
         click : function() { toggleComments( id, url ); }
       })
       .insertAfter( $(this) );
 
-      $( '<div/>', {
+      // The div that will contain the loaded comments.
+      $('<div/>', {
         'id'  : 'div-' + id,
-        html  : r.config.status_msg.loading,
+        html  : 'loading...'
       })
       .hide()
       .appendTo( $(this).closest( '.entry' ) );
-//      .insertAfter( $(this).closest( '.flat-list' ).next( '.expando' ) );
 
-      $( this ).addClass( 'show-comments-toggled' );
+      // Add a class to remember which ones have already been added.
+      $(this).addClass( 'rp-toggle-added' );
     });
   }
 });
