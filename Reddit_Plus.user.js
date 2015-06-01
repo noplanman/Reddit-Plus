@@ -68,6 +68,9 @@ jQuery( document ).ready(function( $ ) {
     // Show / Hide the comments area div.
     $div.toggle();
 
+    // Switch the "[+]" and "[-]" buttons.
+    $( '.rp-comments-toggle span', $div.closest( '.entry' ) ).toggle();
+
     // If we aren't loading / haven't loaded the comments yet, do this now.
     if ( ! $div.attr( 'data-loading' ) ) {
       $div.attr( 'data-loading', true );
@@ -118,7 +121,7 @@ jQuery( document ).ready(function( $ ) {
    * Add the toggles next to the comment links.
    */
   function addCommentToggles() {
-    $( '.comments' ).not( '.rp-toggle-added' ).each(function() {
+    $( '.comments' ).not( '.rp-comments-toggle-added' ).each(function() {
       var $commentsLink = $(this);
 
       // Remember the url of the post page, cause that's where we load the comments from.
@@ -126,22 +129,21 @@ jQuery( document ).ready(function( $ ) {
 
       // The div that will contain the loaded comments.
       var $div = $('<div/>', {
-        html : 'loading...'
+        class : 'rp-comments-div',
+        html  : 'loading...'
       })
       .hide()
       .appendTo( $commentsLink.closest( '.entry' ) );
 
       // Add a class to remember which ones have already been added.
-      $commentsLink.addClass( 'rp-toggle-added' );
+      $commentsLink.addClass( 'rp-comments-toggle-added' );
 
       // Link to expand / reduce the comments.
       $('<a/>', {
+        class : 'rp-comments-toggle',
         style : 'cursor: pointer;',
         html  : '<span title="Show comments">[+]</span><span title="Close comments" style="display:none">[-]</span>',
         click : function() {
-          // Switch the "[+]" and "[-]" buttons.
-          $( 'span', $(this) ).toggle();
-
           // Show or Hide the comments.
           toggleComments( $div, url );
         }
