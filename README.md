@@ -1,5 +1,7 @@
 # Reddit Plus userscript
 
+![Reddit Plus Logo][reddit-plus-logo]
+
 - Author: [Armando Lüscher](https://www.reddit.com/user/no-plan-man)
 - Version: 1.0
 - Short-Link for sharing: https://j.mp/reddit-plus
@@ -46,3 +48,5 @@ Simply choose the plugin that corresponds to your web browser below and download
 If you have any ideas for me or things you would like to see in this script, go ahead and create a [New Issue](https://github.com/noplanman/Reddit-Plus/issues/new) and let me know!
 
 Any comment is highly appreciated, thanks!
+
+[reddit-plus-logo]: https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/logo/128-full.png "Reddit Plus Logo"
