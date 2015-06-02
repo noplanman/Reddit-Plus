@@ -1,29 +1,60 @@
-# Reddit Plus userscript
+# Reddit Plus
 
-- Author: [Armando Lüscher](https://www.reddit.com/user/no-plan-man)
+Reddit Plus is a userscript for Reddit that adds additional features to simplify your Reddit life.
+
+It's a work in progress, adding features as I go. Feel free to join in and add useful features, making Reddit Plus the ultimate userscript for Reddit.
+
+You can safely use it as an addition to the [Reddit Enhancement Suite (RES)](https://www.reddit.com/r/Enhancement) if you have that installed too.
+
+![Reddit Plus Logo][reddit-plus-logo]
+
 - Version: 1.0
-- Short-Link for sharing: https://j.mp/reddit-plus
+- Short-Link for sharing: [j.mp/reddit-plus](https://j.mp/reddit-plus)
 - Disclaimer: Reddit Plus userscript is in no way affiliated with Reddit Inc.
 
 ---
 
-I encourage you to read about the features first, to know what awesomeness you're about experience!
+I encourage you to read about the [features](#features) first, to know what awesomeness you're about to experience!
 
-If you feel sure about what you're doing, you can skip ahead to the [installation](#installation) right away and get started with Reddit Plus :-)
+If you feel sure about what you're doing and just can't hold it anymore, skip ahead to the [installation](#installation) right away and get started with Reddit Plus :-)
 
 ---
 
-##Details
-Reddit Plus is a userscript for Reddit that adds additional features to simplify your Reddit life..
+##Features
+
+Here's a list of currently available features:
+- [Comments toggle](#comments-toggle): Load comments with 1 click
+
+---
 
 ###Comments toggle
-Open comments in the list view with just 1 click, loading them just underneath the post. In the same way that you can easily expand the description text of a post you can now load the comments.
-In this added view, you can vote, write a new comment and reply to any existing comments.
+If you are an active Redittor you will know what it's like, having to open a post only to read a handful of comments. *What a drag...*
 
-Next to each `comments` link of each post in a list view, you can now find a little `[+]` button, give it a go!
+With the comments toggle it's now possible to open comments in the list view with just 1 click, loading them right beneath the post. In the same way that you can easily expand the description text of a post you can now load the comments.
+In this added view, you can vote, write a new comment and reply to any existing comments, just like that.
 
-There is still mainly 1 issue with this feature at the moment:
-- When voting up a post with the comments opened, it looks as if all comments have been voted on too (vote button turned orange), but that is NOT the case, it's just a visual change, not an actual vote. This is due to the way that Reddit handles voting and I can't do anything about it yet.
+*Next to each `comments` link of each post in a list view, you can now find a little `[+]` button, give it a go!*
+
+![Toggle to open / close comments][comments-toggle]
+
+*Comments get loaded nicely beneath the post for quick access.*
+
+![Loaded comments displayed below the post][comments-opened]
+
+*Easily write a new comment by clicking the `Add new comment` button.*
+
+![Writing a new comment][comment-new]
+
+*Directly reply to an existing comment, just like you would when viewing a single post.*
+
+![Writing a reply to a comment][comment-reply]
+
+-
+
+There is still 1 known issue with this feature at the moment:
+- When voting on a post with the comments opened, it looks as if all comments have been voted on too (vote button turned orange), but that is NOT the case, it's just a visual change, not an actual vote. This is due to the way that Reddit handles voting and I can't do anything about it just yet.
+
+---
 
 ##Installation
 
@@ -46,3 +77,17 @@ Simply choose the plugin that corresponds to your web browser below and download
 If you have any ideas for me or things you would like to see in this script, go ahead and create a [New Issue](https://github.com/noplanman/Reddit-Plus/issues/new) and let me know!
 
 Any comment is highly appreciated, thanks!
+
+##Donations
+
+Well, if you really insist, go ahead =)
+
+- Bitcoin: 1HEJZmLdayFoHrXdWe7LDnFjxZznUDaz9R
+- [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=armando%40noplanman%2ech&item_name=Reddit%20Plus%20Donation)
+
+
+[reddit-plus-logo]: https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/assets/logo/256-full.png   "Reddit Plus Logo"
+[comments-toggle]:  https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/assets/comments-toggle.png "Toggle to open / close comments"
+[comments-opened]:  https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/assets/comments-opened.png "Loaded comments displayed below the post"
+[comment-new]:      https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/assets/comment-new.png     "Writing a new comment"
+[comment-reply]:    https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/assets/comment-reply.png   "Writing a reply to a comment"
