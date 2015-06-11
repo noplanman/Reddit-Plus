@@ -121,6 +121,9 @@ jQuery( document ).ready(function( $ ) {
    * Add the toggles next to the comment links.
    */
   function addCommentToggles() {
+    // Don't execute on comment pages.
+    if ( $( 'body.comments-page' ).length > 0 ) return;
+
     $( '.comments' ).not( '.rp-comments-toggle-added' ).each(function() {
       var $commentsLink = $(this);
 
