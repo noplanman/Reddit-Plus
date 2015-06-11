@@ -69,7 +69,7 @@ jQuery( document ).ready(function( $ ) {
     $div.toggle();
 
     // Switch the "[+]" and "[-]" buttons.
-    $( '.rp-comments-toggle span', $div.closest( '.entry' ) ).toggle();
+    $div.closest( '.entry' ).find( '.rp-comments-toggle span' ).toggle();
 
     // If we aren't loading / haven't loaded the comments yet, do this now.
     if ( ! $div.attr( 'data-loading' ) ) {
@@ -122,8 +122,11 @@ jQuery( document ).ready(function( $ ) {
    */
   function addCommentToggles() {
     // Don't execute on comment pages.
-    if ( $( 'body.comments-page' ).length > 0 ) return;
+    if ( $( 'body.comments-page' ).length > 0 ) {
+      return;
+    }
 
+    // Add toggles next to the comment links that haven't been handled yet.
     $( '.comments' ).not( '.rp-comments-toggle-added' ).each(function() {
       var $commentsLink = $(this);
 
@@ -138,19 +141,19 @@ jQuery( document ).ready(function( $ ) {
       .hide()
       .appendTo( $commentsLink.closest( '.entry' ) );
 
-      // Add a class to remember which ones have already been added.
-      $commentsLink.addClass( 'rp-comments-toggle-added' );
-
       // Link to expand / reduce the comments.
       $('<a/>', {
         class : 'rp-comments-toggle',
         style : 'cursor: pointer;',
-        html  : '<span title="Show comments">[+]</span><span title="Close comments" style="display:none">[-]</span>',
+        html  : '<span title="show comments">[+]</span><span title="close comments" style="display:none">[-]</span>',
         click : function() {
           // Show or Hide the comments.
           toggleComments( $div, url );
         }
       }).insertAfter( $commentsLink );
+
+      // Add a class to remember which ones have already been added.
+      $commentsLink.addClass( 'rp-comments-toggle-added' );
     });
   }
 });
