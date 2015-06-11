@@ -54,9 +54,86 @@ jQuery( document ).ready(function( $ ) {
 
   Observer.init();
 
+  // Add necessary CSS styles.
+  addCSS();
+
   // Initial load.
   addCommentToggles();
 
+  /**
+   * Fetch the comments and fill them into the appropriate div.
+   * @param  {jQuery} $div DIV of the comment area.
+   * @param  {string} url  URL of the entry to load the comments from.
+   */
+  function loadComments( $div, url ) {
+    // Let the user know that it's loading the comments.
+    $div.html( 'loading...' );
+
+    // Get the comments page and extract the info we need.
+    $.get( url, function( response ) {
+      // Get rid of all images first, no need to load those.
+      var $post = $( response.replace( /<img[^>]*>/g, '' ) );
+
+      // Also fetch the text telling us how many comments there are.
+      var numOfCommentsText = $post.find( '.flat-list .first .comments' ).html();
+      $div.prevAll( '.flat-list' ).find( '.first .comments' ).html( numOfCommentsText );
+
+      // Find the comments area.
+      var $commentArea = $( '.commentarea', $post );
+
+      // Remove the title and comment filter menu.
+      $commentArea.find( '.panestack-title, .menuarea' ).remove();
+
+      // Hide the input field to add a comment and add a button to show it.
+      var $commentForm = $( '.usertext.cloneable', $commentArea ).hide();
+      var $textArea = $( 'textarea', $commentForm );
+
+      // Add a button at the top to add a new comment.
+      $('<a/>', {
+        class : 'rp-button',
+        html  : '<button>add new comment</button><button style="display:none;">cancel</button>',
+        click : function() {
+          // Switch the "Add new comment" and "Cancel" buttons.
+          $( 'button', this ).toggle();
+
+          // Show or Hide the comment form.
+          $commentForm.toggle();
+
+          // Set the focus on the comment input field.
+          $textArea.focus();
+        }
+      }).prependTo( $commentArea );
+
+      $( 'button.save', $commentArea ).click( function() { $textArea.focus(); } );
+
+      // Add a link at the bottom to close the comments.
+      $('<a/>', {
+        class : 'rp-link',
+        html  : '<span>close comments [-]</span>',
+        click : function() {
+          // Scroll the window to the correct position.
+          $(window).scrollTop( $(window).scrollTop() - $div.height() );
+
+          // Hide the comments.
+          toggleComments( $div, url );
+        }
+      }).appendTo( $commentArea );
+
+
+      // Add a button at the top to reload the comments.
+      $('<a/>', {
+        class : 'rp-button',
+        html  : '<button>reload comments</button>',
+        click : function() {
+          // Reload all the comments.
+          loadComments( $div, url );
+        }
+      }).prependTo( $commentArea );
+
+      // Add the freshly loaded comments to the DIV.
+      $div.html( $commentArea );
+    });
+  }
 
   /**
    * Toggle the comments area below the link.
@@ -74,46 +151,7 @@ jQuery( document ).ready(function( $ ) {
     // If we aren't loading / haven't loaded the comments yet, do this now.
     if ( ! $div.attr( 'data-loading' ) ) {
       $div.attr( 'data-loading', true );
-
-      // Fetch the comments and fill them into the appropriate div.
-      $div.load( url + ' .commentarea', function() {
-        var $commentArea = $(this);
-
-        // Remove the title and comment filter menu.
-        $commentArea.find( '.panestack-title, .menuarea' ).remove();
-
-        // Hide the input field to add a comment and add a button to show it.
-        var $commentForm = $commentArea.find( '.usertext.cloneable' ).hide();
-        // Add a link at the top to add a new comment.
-        $('<a/>', {
-          style : 'display: inline-block; margin: 4px 10px;',
-          html  : '<button>Add new comment</button><button style="display:none;">Cancel</button>',
-          click : function() {
-            // Switch the "Add new comment" and "Cancel" buttons.
-            $( 'button', $(this) ).toggle();
-
-            // Show or Hide the comment form.
-            $commentForm.toggle();
-
-            // Set the focus on the comment input field.
-            $( 'textarea', $commentForm ).focus();
-          }
-        }).prependTo( $commentArea );
-
-
-        // Add a link at the bottom to close the comments.
-        $('<a/>', {
-          style : 'cursor: pointer;',
-          html  : '<span>Close comments [-]</span>',
-          click : function() {
-            // Scroll the window to the correct position.
-            $(window).scrollTop( $(window).scrollTop() - $div.height() );
-
-            // Hide the comments.
-            toggleComments( $div, url );
-          }
-        }).appendTo( $commentArea );
-      });
+      loadComments( $div, url );
     }
   }
 
@@ -155,5 +193,17 @@ jQuery( document ).ready(function( $ ) {
       // Add a class to remember which ones have already been added.
       $commentsLink.addClass( 'rp-comments-toggle-added' );
     });
+  }
+
+
+  /**
+   * Add the required CSS rules to the head.
+   */
+  function addCSS() {
+    $( '<style>' ).html(
+      // Menu item.
+      '.rp-comments-div .rp-button { display: inline-block; margin: 4px; }' +
+      '.rp-comments-div .rp-link { cursor: pointer; }'
+    ).appendTo( 'head' );
   }
 });
