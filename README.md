@@ -4,11 +4,11 @@ Reddit Plus is a userscript for Reddit that adds additional features to simplify
 
 It's a work in progress, adding features as I go. Feel free to join in and add useful features, making Reddit Plus the ultimate userscript for Reddit.
 
-You can safely use it as an addition to the [Reddit Enhancement Suite (RES)](https://www.reddit.com/r/Enhancement) if you have that installed too.
+You can safely use it in addition to the [Reddit Enhancement Suite (RES)](https://www.reddit.com/r/Enhancement) if you have that installed too.
 
 ![Reddit Plus Logo][reddit-plus-logo]
 
-- Version: 1.0
+- Version: 1.1
 - Short-Link for sharing: [j.mp/reddit-plus](https://j.mp/reddit-plus)
 - Disclaimer: Reddit Plus userscript is in no way affiliated with Reddit Inc.
 
@@ -31,9 +31,9 @@ Here's a list of currently available features:
 If you are an active Redittor you will know what it's like, having to open a post only to read a handful of comments. *What a drag...*
 
 With the comments toggle it's now possible to open comments in the list view with just 1 click, loading them right beneath the post. In the same way that you can easily expand the description text of a post you can now load the comments.
-In this added view, you can vote, write a new comment and reply to any existing comments, just like that.
+In this added view, you can vote, write a new comment and reply to any existing comments, just like that. If you want to stay up to date with the new comments being added, simply **reload comments** with a single click
 
-*Next to each `comments` link of each post in a list view, you can now find a little `[+]` button, give it a go!*
+*Next to each* **`comment(s)`** *link of each post in a list view, you can now find a little* **`[+]`** *button, give it a go!*
 
 ![Toggle to open / close comments][comments-toggle]
 
@@ -41,7 +41,7 @@ In this added view, you can vote, write a new comment and reply to any existing 
 
 ![Loaded comments displayed below the post][comments-opened]
 
-*Easily write a new comment by clicking the `Add new comment` button.*
+*Easily write a new comment by clicking the* **`add new comment`** *button.*
 
 ![Writing a new comment][comment-new]
 
@@ -51,7 +51,7 @@ In this added view, you can vote, write a new comment and reply to any existing 
 
 -
 
-There is still 1 known issue with this feature at the moment:
+***There is still 1 known issue with this feature at the moment:***
 - When voting on a post with the comments opened, it looks as if all comments have been voted on too (vote button turned orange), but that is NOT the case, it's just a visual change, not an actual vote. This is due to the way that Reddit handles voting and I can't do anything about it just yet.
 
 ---
@@ -84,6 +84,18 @@ Well, if you really insist, go ahead =)
 
 - Bitcoin: 1HEJZmLdayFoHrXdWe7LDnFjxZznUDaz9R
 - [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=armando%40noplanman%2ech&item_name=Reddit%20Plus%20Donation)
+
+##Changelog
+
+###Version 1.1
+
+- Add functionality to reload comments without having to reload the page.
+- Don't show comments expand button on the single post page.
+- Various little code alterations and text corrections.
+
+###Version 1.0
+
+- Initial version, adding only a button to expand the comments of a each post in a list view.
 
 
 [reddit-plus-logo]: https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/assets/logo/256-full.png   "Reddit Plus Logo"
