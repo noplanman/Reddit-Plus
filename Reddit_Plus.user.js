@@ -3,7 +3,7 @@
 // @namespace   reddit
 // @description Additional little features for Reddit.
 // @include     *.reddit.com*
-// @version     1.0
+// @version     1.1
 // @copyright   2015 Armando Lüscher
 // @author      Armando Lüscher
 // @oujs:author noplanman
@@ -89,7 +89,7 @@ jQuery( document ).ready(function( $ ) {
       var $textArea = $( 'textarea', $commentForm );
 
       // Add a button at the top to add a new comment.
-      $('<a/>', {
+      $( '<a/>', {
         class : 'rp-button',
         html  : '<button>add new comment</button><button style="display:none;">cancel</button>',
         click : function() {
@@ -107,12 +107,12 @@ jQuery( document ).ready(function( $ ) {
       $( 'button.save', $commentArea ).click( function() { $textArea.focus(); } );
 
       // Add a link at the bottom to close the comments.
-      $('<a/>', {
+      $( '<a/>', {
         class : 'rp-link',
         html  : '<span>close comments [-]</span>',
         click : function() {
           // Scroll the window to the correct position.
-          $(window).scrollTop( $(window).scrollTop() - $div.height() );
+          $( window ).scrollTop( $( window ).scrollTop() - $div.height() );
 
           // Hide the comments.
           toggleComments( $div, url );
@@ -121,7 +121,7 @@ jQuery( document ).ready(function( $ ) {
 
 
       // Add a button at the top to reload the comments.
-      $('<a/>', {
+      $( '<a/>', {
         class : 'rp-button',
         html  : '<button>reload comments</button>',
         click : function() {
@@ -166,13 +166,13 @@ jQuery( document ).ready(function( $ ) {
 
     // Add toggles next to the comment links that haven't been handled yet.
     $( '.comments' ).not( '.rp-comments-toggle-added' ).each(function() {
-      var $commentsLink = $(this);
+      var $commentsLink = $( this );
 
       // Remember the url of the post page, cause that's where we load the comments from.
       var url = this.href;
 
       // The div that will contain the loaded comments.
-      var $div = $('<div/>', {
+      var $div = $( '<div/>', {
         class : 'rp-comments-div',
         html  : 'loading...'
       })
@@ -180,7 +180,7 @@ jQuery( document ).ready(function( $ ) {
       .appendTo( $commentsLink.closest( '.entry' ) );
 
       // Link to expand / reduce the comments.
-      $('<a/>', {
+      $( '<a/>', {
         class : 'rp-comments-toggle',
         style : 'cursor: pointer;',
         html  : '<span title="show comments">[+]</span><span title="close comments" style="display:none">[-]</span>',
