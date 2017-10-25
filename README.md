@@ -20,14 +20,14 @@ If you feel sure about what you're doing and just can't hold it anymore, skip ah
 
 ---
 
-##Features
+## Features
 
 Here's a list of currently available features:
 - [Comments toggle](#comments-toggle): Load comments with 1 click
 
 ---
 
-###Comments toggle
+### Comments toggle
 If you are an active Redittor you will know what it's like, having to open a post only to read a handful of comments. *What a drag...*
 
 With the comments toggle it's now possible to open comments in the list view with just 1 click, loading them right beneath the post. In the same way that you can easily expand the description text of a post you can now load the comments.
@@ -56,12 +56,12 @@ In this added view, you can vote, write a new comment and reply to any existing 
 
 ---
 
-##Installation
+## Installation
 
 Reddit Plus can be installed on a **PC with Windows**, or a **Mac with OSX**.
 Simply choose the plugin that corresponds to your web browser below and download the script, as easy as that!
 
-###With Plugin
+### With Plugin
 1. Which browser?
   - **Firefox**: Install the [GreaseMonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) extension.
   - **Chrome**: Install the [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) extension.
@@ -73,27 +73,27 @@ Simply choose the plugin that corresponds to your web browser below and download
   - [Get it on GreasyFork](https://greasyfork.org/scripts/10190-reddit-plus/code/Reddit%20Plus.user.js)
   - [Get it on GitHub](https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/Reddit_Plus.user.js)
 
-##Any ideas / Feature requests / Comments?
+## Any ideas / Feature requests / Comments?
 If you have any ideas for me or things you would like to see in this script, go ahead and create a [New Issue](https://github.com/noplanman/Reddit-Plus/issues/new) and let me know!
 
 Any comment is highly appreciated, thanks!
 
-##Donations
+## Donations
 
 Well, if you really insist, go ahead =)
 
 - Bitcoin: 1HEJZmLdayFoHrXdWe7LDnFjxZznUDaz9R
 - [PayPal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=armando%40noplanman%2ech&item_name=Reddit%20Plus%20Donation)
 
-##Changelog
+## Changelog
 
-###Version 1.1
+### Version 1.1
 
 - Add functionality to reload comments without having to reload the page.
 - Don't show comments expand button on the single post page.
 - Various little code alterations and text corrections.
 
-###Version 1.0
+### Version 1.0
 
 - Initial version, adding only a button to expand the comments of a each post in a list view.
 
