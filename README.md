@@ -6,7 +6,7 @@ It's a work in progress, adding features as I go. Feel free to join in and add u
 
 You can safely use it in addition to the [Reddit Enhancement Suite (RES)](https://www.reddit.com/r/Enhancement) if you have that installed too.
 
-![Reddit Plus Logo][reddit-plus-logo]
+![Reddit Plus Logo](assets/logo/256-full.png)
 
 - Version: 1.1
 - Short-Link for sharing: [j.mp/reddit-plus](https://j.mp/reddit-plus)
@@ -35,19 +35,19 @@ In this added view, you can vote, write a new comment and reply to any existing 
 
 *Next to each* **`comment(s)`** *link of each post in a list view, you can now find a little* **`[+]`** *button, give it a go!*
 
-![Toggle to open / close comments][comments-toggle]
+![Toggle to open / close comments](assets/comments-toggle.png)
 
 *Comments get loaded nicely beneath the post for quick access.*
 
-![Loaded comments displayed below the post][comments-opened]
+![Loaded comments displayed below the post](assets/comments-opened.png)
 
 *Easily write a new comment by clicking the* **`add new comment`** *button.*
 
-![Writing a new comment][comment-new]
+![Writing a new comment](assets/comment-new.png)
 
 *Directly reply to an existing comment, just like you would when viewing a single post.*
 
-![Writing a reply to a comment][comment-reply]
+![Writing a reply to a comment](assets/comment-reply.png)
 
 -
 
@@ -63,15 +63,15 @@ Simply choose the plugin that corresponds to your web browser below and download
 
 ### With Plugin
 1. Which browser?
-  - **Firefox**: Install the [GreaseMonkey](https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/) extension.
-  - **Chrome**: Install the [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en) extension.
-  - **Opera**: Install the [ViolentMonkey](https://addons.opera.com/en/extensions/details/violent-monkey/) extension.
+  - **Firefox**: Install the [GreaseMonkey] extension.
+  - **Chrome**: Install the [Tampermonkey] extension.
+  - **Opera**: Install the [ViolentMonkey] extension.
   - **Safari** & **Internet Explorer**: *NOT SUPPORTED!*
 
 2. Reddit Plus userscript can be found here (just choose any one)
-  - [Get it on OpenUserJS.org](https://openuserjs.org/install/noplanman/Reddit_Plus.user.js)
-  - [Get it on GreasyFork](https://greasyfork.org/scripts/10190-reddit-plus/code/Reddit%20Plus.user.js)
-  - [Get it on GitHub](https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/Reddit_Plus.user.js)
+  - [Get it on OpenUserJS.org]
+  - [Get it on GreasyFork]
+  - [Get it on GitHub]
 
 ## Any ideas / Feature requests / Comments?
 If you have any ideas for me or things you would like to see in this script, go ahead and create a [New Issue](https://github.com/noplanman/Reddit-Plus/issues/new) and let me know!
@@ -97,9 +97,9 @@ Well, if you really insist, go ahead =)
 
 - Initial version, adding only a button to expand the comments of a each post in a list view.
 
-
-[reddit-plus-logo]: https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/assets/logo/256-full.png   "Reddit Plus Logo"
-[comments-toggle]:  https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/assets/comments-toggle.png "Toggle to open / close comments"
-[comments-opened]:  https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/assets/comments-opened.png "Loaded comments displayed below the post"
-[comment-new]:      https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/assets/comment-new.png     "Writing a new comment"
-[comment-reply]:    https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/assets/comment-reply.png   "Writing a reply to a comment"
+[GreaseMonkey]: https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/ "GreaseMonkey for Firefox"
+[Tampermonkey]: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo?hl=en "Tampermonkey for Chrome"
+[ViolentMonkey]: https://addons.opera.com/en/extensions/details/violent-monkey/ "ViolentMonkey for Opera"
+[Get it on OpenUserJS.org]: https://openuserjs.org/install/noplanman/Reddit_Plus.user.js "OpenUserJS.org"
+[Get it on GreasyFork]: https://greasyfork.org/scripts/10190-reddit-plus/code/Reddit%20Plus.user.js "GreasyFork"
+[Get it on GitHub]: https://raw.githubusercontent.com/noplanman/Reddit-Plus/master/Reddit_Plus.user.js "GitHub"
